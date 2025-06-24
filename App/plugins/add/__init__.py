@@ -1,5 +1,5 @@
 from App.commands import Command
-from calculator.operations import add
+from App.calculator.operations import add
 
 class Add(Command):
     def execute(self):

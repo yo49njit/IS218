@@ -1,5 +1,5 @@
 from App.commands import Command
-from calculator.operations import multiply
+from App.calculator.operations import multiply
 
 class Multiply(Command):
     def execute(self):

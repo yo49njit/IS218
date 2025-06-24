@@ -1,5 +1,5 @@
 from App.commands import Command
-from calculator.operations import divide
+from App.calculator.operations import divide
 
 class Divide(Command):
     def execute(self):

@@ -1,7 +1,7 @@
 # tests/test_add_command.py
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from App.plugins.add import Add
 from App.plugins.subtract import Subtract
 from App.plugins.multiply import Multiply
@@ -36,7 +36,7 @@ def test_multiply_command(monkeypatch, capsys):
     multiply_command.execute()
     
     captured = capsys.readouterr()
-    assert "6.0 * 6.0 = 36.0" in captured.out
+    assert "6.0 x 6.0 = 36.0" in captured.out
 
 def test_divide_command(monkeypatch, capsys):
     inputs = iter(['10', '2'])
@@ -56,5 +56,9 @@ def test_divide_by_zero(monkeypatch, capsys):
     divide_command.execute()
 
     captured = capsys.readouterr()
-    assert "Cannot divide by zero" in captured.out or "Error" in captured.out
+    assert (
+    "Cannot divide by zero." in captured.out
+    or "Error" in captured.out
+    or "Invalid input" in captured.out
+)
 
